@@ -1,0 +1,212 @@
+  <!-- FlatFy Theme - Andrea Galanti /-->
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Journey till now">
+    <meta name="author" content="">
+
+	<!--base href="https://mridulganga.github.io/nisb-cdn/" target="_blank"-->
+<link rel="stylesheet" type="text/css" href="https://mridulganga.github.io/nisb-cdn/css/preloader.css">
+    <link rel="icon" href="https://mridulganga.github.io/nisb-cdn/img/logos/resized_logo.png">
+    <title>NIE IEEE Student Branch</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://mridulganga.github.io/nisb-cdn/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="https://mridulganga.github.io/nisb-cdn/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom CSS-->
+    <link href="https://mridulganga.github.io/nisb-cdn/css/general.css" rel="stylesheet">
+
+	 <!-- Owl-Carousel -->
+    <link href="https://mridulganga.github.io/nisb-cdn/css/custom.css" rel="stylesheet">
+	<link href="https://mridulganga.github.io/nisb-cdn/css/owl.carousel.css" rel="stylesheet">
+    <link href="https://mridulganga.github.io/nisb-cdn/css/owl.theme.css" rel="stylesheet">
+	<link href="https://mridulganga.github.io/nisb-cdn/css/style.css" rel="stylesheet">
+	<link href="https://mridulganga.github.io/nisb-cdn/css/animate.css" rel="stylesheet">
+
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="https://mridulganga.github.io/nisb-cdn/css/magnific-popup.css">
+
+	<script src="https://mridulganga.github.io/nisb-cdn/js/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
+	<!--[if IE 9]>
+		<script src="js/PIE_IE9.js"></script>
+	<![endif]-->
+	<!--[if lt IE 9]>
+		<script src="js/PIE_IE678.js"></script>
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+                                <script>
+                                        alert("Make sure you note the unique URL after the payment");
+                                </script>
+                            
+
+</head>
+
+<body id="home">
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<!--div id="status"></div-->
+       	</div>
+
+	<!-- Nav was here -->
+	<div id="navhome"></div>
+
+	<!-- What is -->
+	<div id="whatis" class="content-section-b" style="border-top: 0">
+		<div class="container">
+
+			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
+				<h2>Register</h2>
+				<p class="lead" style="margin-top:0">You can register here!<p>
+				{% if errorMsg %}
+				<div class="alert alert-danger">
+					{{ errorMsg }}
+				</div>
+				{% endif %}
+				{% if successMsg %}
+				<div class="alert alert-success">
+					{{ successMsg }}
+				</div>
+				{% endif %}
+			</div>
+
+			<div class="row">
+
+				<div class="col-lg-6 col-sm-12 wow fadeInDown text-justify" style="float:none; margin:0 auto; overflow:hidden;">
+                	<div>
+                		  <!-- Nav tabs -->
+					  <ul class="nav nav-tabs" role="tablist">
+					    <li role="presentation" class="active"><a href="#ieee" aria-controls="home" role="tab" data-toggle="tab">NISB</a></li>
+					    <li role="presentation"><a href="#nonieee" aria-controls="profile" role="tab" data-toggle="tab">Non IEEE</a></li>
+					    <li role="presentation"><a href="#diffcollege" aria-controls="profile" role="tab" data-toggle="tab">IEEE Member from different college</a></li>
+					  </ul>
+
+					  <!-- Tab panes -->
+					  <div class="tab-content">
+					    <div role="tabpanel" class="tab-pane active" id="ieee">
+					    <form action="/pay/" method="post"> {% csrf_token %}
+					    	<input type="hidden" name="eventid" value={{ eventid }}>
+					    	<input type="hidden" name="type" value="0">
+					    	<input type="text" name="ieeeno" placeholder="IEEE Number" required>
+					    	<input type="submit" name="submit" value="Register">
+					    </form>
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="nonieee">
+					    <form action="/pay/" method="post"> {% csrf_token %}
+					    	<input type="hidden" name="eventid" value={{ eventid }}>
+					    	<input type="hidden" name="type" value="1">
+					    	<input type="text" name="name" placeholder="Full Name" required>
+						<select name="branch" required>
+							<option></option>
+							<option value="CE">Civil Engineering</option>
+							<option value="CS">Computer Science & Engineering</option>
+							<option value="ECE">Electronics & Communication Engineering</option>
+							<option value="EEE">Electronics & Electrical Engineering</option>
+							<option value="IP">Industrial Production Engineering</option>
+							<option value="IS">Information Science/Technology</option>
+							<option value="ME">Mechanical Engineering</option>
+							<option value="MTech">M.Tech</option>
+							<option value="Oth">Other</option>
+						</select>
+						<input type="text" name="sem" placeholder="Year (0, if N/A)" required>
+					    	<input type="number" name="mob" placeholder="Mobile" required>
+					    	<input type="email" name="email" placeholder="Email" required>
+					    	<input type="submit" name="submit" value="Register">
+					    </form>
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="diffcollege">
+						<form action="/pay/" method="post"> {% csrf_token %}
+							<input type="hidden" name="type" value="2">
+							<input type="hidden" name="eventid" value={{ eventid }}>
+							 <input type="text" name="name" placeholder="Full Name" required>
+							<select name="branch" required>
+                                                        <option></option>
+                                                        <option value="CE">Civil Engineering</option>
+                                                        <option value="CS">Computer Science & Engineering</option>
+                                                        <option value="ECE">Electronics & Communication Engineering</option>
+                                                        <option value="EEE">Electronics & Electrical Engineering</option>
+                                                        <option value="IP">Industrial Production Engineering</option>
+                                                        <option value="IS">Information Science/Technology</option>
+                                                        <option value="ME">Mechanical Engineering</option>
+                                                        <option value="MTech">M.Tech</option>
+                                                        <option value="Oth">Other</option>
+                                                </select>
+                                                <input type="text" name="sem" placeholder="Year (0, if N/A)" required>
+                                                <input type="number" name="mob" placeholder="Mobile" required>
+                                                <input type="email" name="email" placeholder="Your @ieee.org Email" required>
+                                                <input type="submit" name="submit" value="Register">
+						</form>
+					    </div>
+					    <style type="text/css">
+					    	input{padding: 5px; width: 90%; margin:10px;}
+					    </style>
+					  </div>
+                	</div>
+                </div>
+
+			</div><!-- /.row -->
+
+
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Footer was here -->
+	<div id="footerhome"></div>
+
+    <!-- JavaScript -->
+    <script src="https://mridulganga.github.io/nisb-cdn/js/jquery-1.10.2.js"></script>
+    <script src="https://mridulganga.github.io/nisb-cdn/js/bootstrap.js"></script>
+	<script src="https://mridulganga.github.io/nisb-cdn/js/owl.carousel.js"></script>
+	<script src="https://mridulganga.github.io/nisb-cdn/js/script.js"></script>
+	<!-- StikyMenu -->
+	<script src="https://mridulganga.github.io/nisb-cdn/js/stickUp.min.js"></script>
+<!--	<script type="text/javascript">
+		$(document).ready( function() {
+			$("#navhome").load("https://mridulganga.github.io/nisb-cdn/nav.html");
+			$("#footerhome").load("https://mridulganga.github.io/nisb-cdn/footer.html");
+		  	$('.navbar-default').stickUp();
+
+		});
+
+	</script>
+	<!-- Smoothscroll -->
+<script type="text/javascript">
+		$(document).ready( function() {
+			$("#preloader").load("https://mridulganga.github.io/nisb-cdn/preloader.html");
+
+		});
+
+	</script>
+<script src="https://mridulganga.github.io/nisb-cdn/js/preloader.js">
+  
+	<script type="text/javascript" src="https://mridulganga.github.io/nisb-cdn/js/jquery.corner.js"></script>
+	<script src="https://mridulganga.github.io/nisb-cdn/js/wow.min.js"></script>
+	<script>
+	 new WOW().init();
+	</script>
+	<script src="https://mridulganga.github.io/nisb-cdn/js/classie.js"></script>
+	<script src="https://mridulganga.github.io/nisb-cdn/js/uiMorphingButton_inflow.js"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="https://mridulganga.github.io/nisb-cdn/js/jquery.magnific-popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+<div style="width: 300px;">
+{% if news %}
+
+	{% for bulletin in news %}
+		<h4>{{bulletin.theLine}}</h4>
+	{% endfor %}
+
+{% else %}
+	<b>No news avalable</b>
+{% endif %}
+</div>
